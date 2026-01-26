@@ -2,8 +2,16 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "outDir": "./dist",
-    "rootDir": "./src",
-    "composite": true
+    "composite": false,
+    "baseUrl": "../../",
+    "skipLibCheck": true,
+    "paths": {
+      "@design-system/core": ["./packages/core/src"],
+      "@design-system/core/*": ["./packages/core/src/*"],
+      "@design-system/components": ["./packages/components/src"],
+      "@design-system/hooks": ["./packages/hooks/src"],
+      "@design-system/utils": ["./packages/utils/src"]
+    }
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]

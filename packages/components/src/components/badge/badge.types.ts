@@ -39,5 +39,5 @@ export interface BadgeProps
   /**
    * Border radius variant
    */
-  rounded?: 'default' | 'sm' | 'md' | 'lg' | 'none';
+  rounded?: 'default' | 'sm' | 'md' | 'lg' | 'none' | 'full';
 }

@@ -2,12 +2,16 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "outDir": "./dist",
-    "rootDir": "./src",
-    "composite": true,
+    "composite": false,
     "jsx": "react-jsx",
-    "baseUrl": "./src",
+    "baseUrl": "../../",
+    "skipLibCheck": true,
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./packages/components/src/*"],
+      "@design-system/core": ["./packages/core/src"],
+      "@design-system/components": ["./packages/components/src"],
+      "@design-system/hooks": ["./packages/hooks/src"],
+      "@design-system/utils": ["./packages/utils/src"]
     }
   },
   "include": ["src/**/*"],

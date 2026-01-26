@@ -34,6 +34,7 @@ const badgeVariants = cva(
         md: 'rounded-md',
         lg: 'rounded-lg',
         none: 'rounded-none',
+        full: 'rounded-full',
       },
     },
     defaultVariants: {

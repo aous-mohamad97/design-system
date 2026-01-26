@@ -37,7 +37,7 @@ export function ThemeProvider({
 
     const root = document.documentElement;
     Object.entries(cssVariables).forEach(([key, value]) => {
-      root.style.setProperty(key, value);
+      root.style.setProperty(key, String(value));
     });
 
     return () => {

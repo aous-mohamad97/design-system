@@ -13,7 +13,8 @@ function convertFontSize(
   fontSize: typeof tokens.fontSize
 ): Record<string, [string, { lineHeight: string }]> {
   const result: Record<string, [string, { lineHeight: string }]> = {};
-  for (const key in fontSize) {
+  const keys = Object.keys(fontSize) as Array<keyof typeof fontSize>;
+  for (const key of keys) {
     const value = fontSize[key];
     result[key] = [value[0], { lineHeight: value[1].lineHeight }];
   }
