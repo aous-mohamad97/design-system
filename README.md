@@ -13,7 +13,7 @@ A React design system built with TypeScript, Tailwind CSS, and shadcn/ui. Publis
 | `@design-system/design-system` | Main package (re-exports all) |
 
 ## Installation
-
+ 
 ```bash
 pnpm add @design-system/design-system
 ```
