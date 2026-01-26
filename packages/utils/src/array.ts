@@ -53,9 +53,12 @@ export function chunk<T>(array: T[], size: number): T[][] {
  * Flatten nested array
  */
 export function flatten<T>(array: (T | T[])[]): T[] {
-  return array.reduce((acc, item) => {
-    return acc.concat(Array.isArray(item) ? flatten(item) : item);
-  }, [] as T[]);
+  return array.reduce<T[]>((acc, item) => {
+    if (Array.isArray(item)) {
+      return acc.concat(flatten(item));
+    }
+    return acc.concat([item]);
+  }, []);
 }
 
 /**

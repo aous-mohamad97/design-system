@@ -5,11 +5,11 @@
 /**
  * Pick specific keys from object
  */
-export function pick<T, K extends keyof T>(obj: T, keys: K[]): Pick<T, K> {
+export function pick<T extends Record<string, any>, K extends keyof T>(obj: T, keys: K[]): Pick<T, K> {
   const result = {} as Pick<T, K>;
   for (const key of keys) {
     if (key in obj) {
-      result[key] = obj[key];
+      (result as any)[key] = obj[key];
     }
   }
   return result;
@@ -65,10 +65,12 @@ export function merge<T extends Record<string, any>>(target: T, ...sources: Part
   const source = sources.shift();
   if (source) {
     for (const key in source) {
-      if (isObject(source[key]) && isObject(target[key])) {
-        target[key] = merge(target[key], source[key]);
-      } else {
-        target[key] = source[key] as T[Extract<keyof T, string>];
+      const sourceValue = source[key];
+      const targetValue = target[key];
+      if (isObject(sourceValue) && isObject(targetValue)) {
+        target[key] = merge(targetValue, sourceValue);
+      } else if (sourceValue !== undefined) {
+        target[key] = sourceValue as T[Extract<keyof T, string>];
       }
     }
   }
@@ -76,11 +78,9 @@ export function merge<T extends Record<string, any>>(target: T, ...sources: Part
 }
 
 /**
- * Check if object is empty
+ * Deep merge objects (alias for merge)
  */
-export function isEmpty(obj: Record<string, any>): boolean {
-  return Object.keys(obj).length === 0;
-}
+export const deepMerge = merge;
 
 function isObject(value: unknown): value is Record<string, any> {
   return typeof value === 'object' && value !== null && !Array.isArray(value);

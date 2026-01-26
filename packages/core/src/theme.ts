@@ -45,17 +45,17 @@ export function getThemeCSS(theme?: Theme): string {
  * Merge multiple themes together
  */
 export function mergeThemes(...themes: Theme[]): Theme {
-  return themes.reduce((acc, theme) => {
+  return themes.reduce<Theme>((acc, theme) => {
     return {
-      colors: { ...acc.colors, ...theme.colors },
-      spacing: { ...acc.spacing, ...theme.spacing },
-      borderRadius: { ...acc.borderRadius, ...theme.borderRadius },
-      fontSize: { ...acc.fontSize, ...theme.fontSize },
-      fontWeight: { ...acc.fontWeight, ...theme.fontWeight },
-      boxShadow: { ...acc.boxShadow, ...theme.boxShadow },
-      zIndex: { ...acc.zIndex, ...theme.zIndex },
-      breakpoints: { ...acc.breakpoints, ...theme.breakpoints },
-      transition: { ...acc.transition, ...theme.transition },
+      colors: theme.colors ? { ...acc.colors, ...theme.colors } : acc.colors,
+      spacing: theme.spacing ? { ...acc.spacing, ...theme.spacing } : acc.spacing,
+      borderRadius: theme.borderRadius ? { ...acc.borderRadius, ...theme.borderRadius } : acc.borderRadius,
+      fontSize: theme.fontSize ? { ...acc.fontSize, ...theme.fontSize } : acc.fontSize,
+      fontWeight: theme.fontWeight ? { ...acc.fontWeight, ...theme.fontWeight } : acc.fontWeight,
+      boxShadow: theme.boxShadow ? { ...acc.boxShadow, ...theme.boxShadow } : acc.boxShadow,
+      zIndex: theme.zIndex ? { ...acc.zIndex, ...theme.zIndex } : acc.zIndex,
+      breakpoints: theme.breakpoints ? { ...acc.breakpoints, ...theme.breakpoints } : acc.breakpoints,
+      transition: theme.transition ? { ...acc.transition, ...theme.transition } : acc.transition,
     };
-  }, {} as Theme);
+  }, {});
 }

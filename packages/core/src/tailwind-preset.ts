@@ -111,7 +111,7 @@ export const tailwindPreset: Config = {
       },
       spacing: tokens.spacing,
       borderRadius: tokens.borderRadius,
-      fontSize: tokens.fontSize,
+      fontSize: tokens.fontSize as Record<string, [string, { lineHeight: string }]>,
       fontWeight: tokens.fontWeight,
       boxShadow: tokens.boxShadow,
       zIndex: tokens.zIndex,
