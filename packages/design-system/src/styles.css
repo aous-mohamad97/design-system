@@ -1,0 +1,6 @@
+/**
+ * Re-export styles from core
+ * This file will be copied during build
+ */
+
+@import '@design-system/core/styles';

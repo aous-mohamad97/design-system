@@ -1,0 +1,30 @@
+[01:27:23.764] [INFO] storybook v10.2.0
+[01:27:24.003] [ERROR] [38;2;241;97;97mSB_CORE-SERVER_0007 (MainFileEvaluationError): Storybook couldn't evaluate your .storybook\main.ts file.
+
+Original error:
+Error: spawn EPERM
+    at ChildProcess.spawn (node:internal/child_process:420:11)
+    at Object.spawn (node:child_process:787:9)
+    at ensureServiceIsRunning (G:\design-system\node_modules\.pnpm\esbuild@0.27.2\node_modules\esbuild\lib\main.js:1978:29)
+    at transform (G:\design-system\node_modules\.pnpm\esbuild@0.27.2\node_modules\esbuild\lib\main.js:1878:37)
+    at load (file:///G:/design-system/node_modules/.pnpm/storybook@10.2.0_@testing-library+dom@9.3.4_prettier@3.8.1_react-dom@18.3.1_react@18.3.1/node_modules/storybook/dist/bin/loader.js:77:113)
+    at async nextLoad (node:internal/modules/esm/hooks:748:22)
+    at async Hooks.load (node:internal/modules/esm/hooks:385:20)
+    at async MessagePort.handleMessage (node:internal/modules/esm/worker:199:18)[39m
+    at loadMainConfig (file:///G:/design-system/node_modules/.pnpm/storybook@10.2.0_@testing-library+dom@9.3.4_prettier@3.8.1_react-dom@18.3.1_react@18.3.1/node_modules/storybook/dist/_node-chunks/chunk-6QCIDOPJ.js:11707:11)
+    at async buildDevStandalone (file:///G:/design-system/node_modules/.pnpm/storybook@10.2.0_@testing-library+dom@9.3.4_prettier@3.8.1_react-dom@18.3.1_react@18.3.1/node_modules/storybook/dist/core-server/index.js:7518:16)
+    at async withTelemetry (file:///G:/design-system/node_modules/.pnpm/storybook@10.2.0_@testing-library+dom@9.3.4_prettier@3.8.1_react-dom@18.3.1_react@18.3.1/node_modules/storybook/dist/_node-chunks/chunk-5T2PCIM6.js:218:12)
+    at async dev (file:///G:/design-system/node_modules/.pnpm/storybook@10.2.0_@testing-library+dom@9.3.4_prettier@3.8.1_react-dom@18.3.1_react@18.3.1/node_modules/storybook/dist/bin/core.js:2734:3)
+    at async _Command.<anonymous> (file:///G:/design-system/node_modules/.pnpm/storybook@10.2.0_@testing-library+dom@9.3.4_prettier@3.8.1_react-dom@18.3.1_react@18.3.1/node_modules/storybook/dist/bin/core.js:2801:92)
+[01:27:24.012] [WARN] Broken build, fix the error above.
+You may need to refresh the browser.
+[01:27:24.020] [WARN]   Failed to load preset: "G:/design-system/apps/storybook/.storybook/main.ts"
+[01:27:24.023] [ERROR] [38;2;241;97;97mError: spawn EPERM[39m
+    at ChildProcess.spawn (node:internal/child_process:420:11)
+    at Object.spawn (node:child_process:787:9)
+    at ensureServiceIsRunning (G:\design-system\node_modules\.pnpm\esbuild@0.27.2\node_modules\esbuild\lib\main.js:1978:29)
+    at transform (G:\design-system\node_modules\.pnpm\esbuild@0.27.2\node_modules\esbuild\lib\main.js:1878:37)
+    at load (file:///G:/design-system/node_modules/.pnpm/storybook@10.2.0_@testing-library+dom@9.3.4_prettier@3.8.1_react-dom@18.3.1_react@18.3.1/node_modules/storybook/dist/bin/loader.js:77:113)
+    at async nextLoad (node:internal/modules/esm/hooks:748:22)
+    at async Hooks.load (node:internal/modules/esm/hooks:385:20)
+    at async MessagePort.handleMessage (node:internal/modules/esm/worker:199:18)

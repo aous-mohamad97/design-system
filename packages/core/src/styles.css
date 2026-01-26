@@ -1,0 +1,212 @@
+/**
+ * Design System CSS Variables
+ * This file is auto-generated from design tokens
+ * Consumers can override these variables in their own CSS
+ */
+
+:root {
+  /* Colors - Primary */
+  --ds-colors-primary-50: #f0f9ff;
+  --ds-colors-primary-100: #e0f2fe;
+  --ds-colors-primary-200: #bae6fd;
+  --ds-colors-primary-300: #7dd3fc;
+  --ds-colors-primary-400: #38bdf8;
+  --ds-colors-primary-500: #0ea5e9;
+  --ds-colors-primary-600: #0284c7;
+  --ds-colors-primary-700: #0369a1;
+  --ds-colors-primary-800: #075985;
+  --ds-colors-primary-900: #0c4a6e;
+  --ds-colors-primary-950: #082f49;
+
+  /* Colors - Secondary */
+  --ds-colors-secondary-50: #faf5ff;
+  --ds-colors-secondary-100: #f3e8ff;
+  --ds-colors-secondary-200: #e9d5ff;
+  --ds-colors-secondary-300: #d8b4fe;
+  --ds-colors-secondary-400: #c084fc;
+  --ds-colors-secondary-500: #a855f7;
+  --ds-colors-secondary-600: #9333ea;
+  --ds-colors-secondary-700: #7e22ce;
+  --ds-colors-secondary-800: #6b21a8;
+  --ds-colors-secondary-900: #581c87;
+  --ds-colors-secondary-950: #3b0764;
+
+  /* Colors - Gray */
+  --ds-colors-gray-50: #f9fafb;
+  --ds-colors-gray-100: #f3f4f6;
+  --ds-colors-gray-200: #e5e7eb;
+  --ds-colors-gray-300: #d1d5db;
+  --ds-colors-gray-400: #9ca3af;
+  --ds-colors-gray-500: #6b7280;
+  --ds-colors-gray-600: #4b5563;
+  --ds-colors-gray-700: #374151;
+  --ds-colors-gray-800: #1f2937;
+  --ds-colors-gray-900: #111827;
+  --ds-colors-gray-950: #030712;
+
+  /* Colors - Success */
+  --ds-colors-success-50: #f0fdf4;
+  --ds-colors-success-100: #dcfce7;
+  --ds-colors-success-200: #bbf7d0;
+  --ds-colors-success-300: #86efac;
+  --ds-colors-success-400: #4ade80;
+  --ds-colors-success-500: #22c55e;
+  --ds-colors-success-600: #16a34a;
+  --ds-colors-success-700: #15803d;
+  --ds-colors-success-800: #166534;
+  --ds-colors-success-900: #14532d;
+  --ds-colors-success-950: #052e16;
+
+  /* Colors - Warning */
+  --ds-colors-warning-50: #fffbeb;
+  --ds-colors-warning-100: #fef3c7;
+  --ds-colors-warning-200: #fde68a;
+  --ds-colors-warning-300: #fcd34d;
+  --ds-colors-warning-400: #fbbf24;
+  --ds-colors-warning-500: #f59e0b;
+  --ds-colors-warning-600: #d97706;
+  --ds-colors-warning-700: #b45309;
+  --ds-colors-warning-800: #92400e;
+  --ds-colors-warning-900: #78350f;
+  --ds-colors-warning-950: #451a03;
+
+  /* Colors - Error */
+  --ds-colors-error-50: #fef2f2;
+  --ds-colors-error-100: #fee2e2;
+  --ds-colors-error-200: #fecaca;
+  --ds-colors-error-300: #fca5a5;
+  --ds-colors-error-400: #f87171;
+  --ds-colors-error-500: #ef4444;
+  --ds-colors-error-600: #dc2626;
+  --ds-colors-error-700: #b91c1c;
+  --ds-colors-error-800: #991b1b;
+  --ds-colors-error-900: #7f1d1d;
+  --ds-colors-error-950: #450a0a;
+
+  /* Colors - Background */
+  --ds-colors-background-DEFAULT: #ffffff;
+  --ds-colors-background-secondary: #f9fafb;
+  --ds-colors-background-muted: #f3f4f6;
+
+  /* Colors - Foreground */
+  --ds-colors-foreground-DEFAULT: #111827;
+  --ds-colors-foreground-secondary: #6b7280;
+  --ds-colors-foreground-muted: #9ca3af;
+  --ds-colors-foreground-disabled: #d1d5db;
+
+  /* Colors - Border */
+  --ds-colors-border-DEFAULT: #e5e7eb;
+  --ds-colors-border-muted: #f3f4f6;
+  --ds-colors-border-strong: #d1d5db;
+
+  /* Spacing */
+  --ds-spacing-0: 0px;
+  --ds-spacing-1: 0.25rem;
+  --ds-spacing-2: 0.5rem;
+  --ds-spacing-3: 0.75rem;
+  --ds-spacing-4: 1rem;
+  --ds-spacing-5: 1.25rem;
+  --ds-spacing-6: 1.5rem;
+  --ds-spacing-8: 2rem;
+  --ds-spacing-10: 2.5rem;
+  --ds-spacing-12: 3rem;
+  --ds-spacing-16: 4rem;
+  --ds-spacing-20: 5rem;
+  --ds-spacing-24: 6rem;
+  --ds-spacing-32: 8rem;
+  --ds-spacing-40: 10rem;
+  --ds-spacing-48: 12rem;
+  --ds-spacing-56: 14rem;
+  --ds-spacing-64: 16rem;
+
+  /* Border Radius */
+  --ds-borderRadius-none: 0px;
+  --ds-borderRadius-sm: 0.125rem;
+  --ds-borderRadius-DEFAULT: 0.25rem;
+  --ds-borderRadius-md: 0.375rem;
+  --ds-borderRadius-lg: 0.5rem;
+  --ds-borderRadius-xl: 0.75rem;
+  --ds-borderRadius-2xl: 1rem;
+  --ds-borderRadius-3xl: 1.5rem;
+  --ds-borderRadius-full: 9999px;
+
+  /* Font Sizes */
+  --ds-fontSize-xs: 0.75rem;
+  --ds-fontSize-sm: 0.875rem;
+  --ds-fontSize-base: 1rem;
+  --ds-fontSize-lg: 1.125rem;
+  --ds-fontSize-xl: 1.25rem;
+  --ds-fontSize-2xl: 1.5rem;
+  --ds-fontSize-3xl: 1.875rem;
+  --ds-fontSize-4xl: 2.25rem;
+  --ds-fontSize-5xl: 3rem;
+  --ds-fontSize-6xl: 3.75rem;
+  --ds-fontSize-7xl: 4.5rem;
+  --ds-fontSize-8xl: 6rem;
+  --ds-fontSize-9xl: 8rem;
+
+  /* Font Weights */
+  --ds-fontWeight-thin: 100;
+  --ds-fontWeight-extralight: 200;
+  --ds-fontWeight-light: 300;
+  --ds-fontWeight-normal: 400;
+  --ds-fontWeight-medium: 500;
+  --ds-fontWeight-semibold: 600;
+  --ds-fontWeight-bold: 700;
+  --ds-fontWeight-extrabold: 800;
+  --ds-fontWeight-black: 900;
+
+  /* Box Shadows */
+  --ds-boxShadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --ds-boxShadow-DEFAULT: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --ds-boxShadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --ds-boxShadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --ds-boxShadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --ds-boxShadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --ds-boxShadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+  --ds-boxShadow-none: none;
+
+  /* Z-Index */
+  --ds-zIndex-auto: auto;
+  --ds-zIndex-0: 0;
+  --ds-zIndex-10: 10;
+  --ds-zIndex-20: 20;
+  --ds-zIndex-30: 30;
+  --ds-zIndex-40: 40;
+  --ds-zIndex-50: 50;
+  --ds-zIndex-dropdown: 1000;
+  --ds-zIndex-sticky: 1020;
+  --ds-zIndex-fixed: 1030;
+  --ds-zIndex-modalBackdrop: 1040;
+  --ds-zIndex-modal: 1050;
+  --ds-zIndex-popover: 1060;
+  --ds-zIndex-tooltip: 1070;
+
+  /* Breakpoints */
+  --ds-breakpoints-sm: 640px;
+  --ds-breakpoints-md: 768px;
+  --ds-breakpoints-lg: 1024px;
+  --ds-breakpoints-xl: 1280px;
+  --ds-breakpoints-2xl: 1536px;
+
+  /* Transitions */
+  --ds-transition-duration-fast: 150ms;
+  --ds-transition-duration-DEFAULT: 200ms;
+  --ds-transition-duration-slow: 300ms;
+  --ds-transition-duration-slower: 500ms;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ds-colors-background-DEFAULT: #111827;
+    --ds-colors-background-secondary: #1f2937;
+    --ds-colors-background-muted: #374151;
+    --ds-colors-foreground-DEFAULT: #f9fafb;
+    --ds-colors-foreground-secondary: #d1d5db;
+    --ds-colors-foreground-muted: #9ca3af;
+    --ds-colors-border-DEFAULT: #374151;
+    --ds-colors-border-muted: #1f2937;
+    --ds-colors-border-strong: #4b5563;
+  }
+}

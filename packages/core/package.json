@@ -1,0 +1,49 @@
+{
+  "name": "@design-system/core",
+  "version": "1.0.0",
+  "description": "Core design tokens, theme system, and Tailwind configuration for the design system",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./tailwind-preset": {
+      "import": "./dist/tailwind-preset.mjs",
+      "require": "./dist/tailwind-preset.js",
+      "types": "./dist/tailwind-preset.d.ts"
+    },
+    "./styles": "./dist/styles.css"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "src/styles.css"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "build:watch": "tsup --watch",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "design-system",
+    "tokens",
+    "theme",
+    "tailwind"
+  ],
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3"
+  },
+  "peerDependencies": {
+    "tailwindcss": "^3.0.0"
+  }
+}
