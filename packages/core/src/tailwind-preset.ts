@@ -7,10 +7,24 @@ import type { Config } from 'tailwindcss';
 import { tokens } from './tokens';
 
 /**
+ * Convert readonly fontSize tuples to mutable arrays
+ */
+function convertFontSize(
+  fontSize: typeof tokens.fontSize
+): Record<string, [string, { lineHeight: string }]> {
+  const result: Record<string, [string, { lineHeight: string }]> = {};
+  for (const key in fontSize) {
+    const value = fontSize[key];
+    result[key] = [value[0], { lineHeight: value[1].lineHeight }];
+  }
+  return result;
+}
+
+/**
  * Tailwind preset configuration
  * This can be imported and used in consumer projects
  */
-export const tailwindPreset: Config = {
+export const tailwindPreset: Partial<Config> = {
   theme: {
     extend: {
       colors: {
@@ -111,7 +125,7 @@ export const tailwindPreset: Config = {
       },
       spacing: tokens.spacing,
       borderRadius: tokens.borderRadius,
-      fontSize: tokens.fontSize as Record<string, [string, { lineHeight: string }]>,
+      fontSize: convertFontSize(tokens.fontSize),
       fontWeight: tokens.fontWeight,
       boxShadow: tokens.boxShadow,
       zIndex: tokens.zIndex,

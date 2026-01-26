@@ -68,7 +68,7 @@ export function merge<T extends Record<string, any>>(target: T, ...sources: Part
       const sourceValue = source[key];
       const targetValue = target[key];
       if (isObject(sourceValue) && isObject(targetValue)) {
-        target[key] = merge(targetValue, sourceValue);
+        target[key] = merge({ ...targetValue }, sourceValue) as T[Extract<keyof T, string>];
       } else if (sourceValue !== undefined) {
         target[key] = sourceValue as T[Extract<keyof T, string>];
       }
