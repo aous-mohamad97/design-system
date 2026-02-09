@@ -16,5 +16,5 @@ export * from './theme';
 export { tailwindPreset, default as tailwindPresetDefault } from './tailwind-preset';
 
 // Types
-export type { ColorToken, SpacingToken, ThemeTokens } from './tokens';
+export type { ColorToken, SpacingToken, FontFamilyToken, ThemeTokens } from './tokens';
 export type { Theme } from './theme';

@@ -168,6 +168,12 @@ export const fontWeight = {
   black: '900',
 } as const;
 
+export const fontFamily = {
+  sans: 'ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
+  heading: 'ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
+  mono: 'ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace',
+} as const;
+
 export const boxShadow = {
   sm: '0 1px 2px 0 rgb(0 0 0 / 0.05)',
   DEFAULT: '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)',
@@ -226,6 +232,7 @@ export const tokens = {
   borderRadius,
   fontSize,
   fontWeight,
+  fontFamily,
   boxShadow,
   zIndex,
   breakpoints,
@@ -234,4 +241,5 @@ export const tokens = {
 
 export type ColorToken = typeof colors;
 export type SpacingToken = typeof spacing;
+export type FontFamilyToken = typeof fontFamily;
 export type ThemeTokens = typeof tokens;

@@ -128,6 +128,11 @@ export const tailwindPreset: Partial<Config> = {
       borderRadius: tokens.borderRadius,
       fontSize: convertFontSize(tokens.fontSize),
       fontWeight: tokens.fontWeight,
+      fontFamily: {
+        sans: `var(--ds-fontFamily-sans, ${tokens.fontFamily.sans})`,
+        heading: `var(--ds-fontFamily-heading, ${tokens.fontFamily.heading})`,
+        mono: `var(--ds-fontFamily-mono, ${tokens.fontFamily.mono})`,
+      },
       boxShadow: tokens.boxShadow,
       zIndex: tokens.zIndex,
       screens: tokens.breakpoints,
