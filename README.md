@@ -357,6 +357,22 @@ pnpm type-check       # Type check all packages
 pnpm clean            # Remove build artifacts and node_modules
 ```
 
+### Run the platform shell with Claims (Module Federation)
+
+The shell loads the Claims app as a **remote**. The federation plugin does **not** serve `remoteEntry.js` in dev, so the remote must be **built and served with preview**:
+
+1. **Terminal 1 – build and serve Claims** (port 5002):
+   ```bash
+   pnpm --filter claims build && pnpm --filter claims preview
+   ```
+2. **Terminal 2 – run the shell** (port 5173):
+   ```bash
+   pnpm --filter platform-shell dev
+   ```
+3. Open **http://localhost:5173** and go to **Claims**. The favicon 404 is resolved by the shell’s inline favicon.
+
+To develop the Claims app alone (no shell), run `pnpm --filter claims dev` and open http://localhost:5002.
+
 ### Project Structure
 
 ```
