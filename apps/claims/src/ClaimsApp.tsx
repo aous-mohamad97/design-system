@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useTenantOptional, DEFAULT_TENANT_CONFIG, MOCK_CONFIG_CUSTOMER_A, MOCK_CONFIG_CUSTOMER_B } from '@design-system/tenant-config';
 import type { TenantConfig } from '@design-system/tenant-config';
 import { Button } from '@design-system/design-system';
+import { getCSSVariables } from '@design-system/core';
 
 export interface ClaimsAppProps {
   /** When provided (e.g. by host shell), tenant config is passed as props so the remote does not need TenantProvider context. */
@@ -23,6 +24,31 @@ function ClaimsAppContent({
   const featuresA = MOCK_CONFIG_CUSTOMER_A.features ?? {};
   const featuresB = MOCK_CONFIG_CUSTOMER_B.features ?? {};
 
+  const primaryColor = (config: TenantConfig, shade: 500 | 600 = 500): string | undefined => {
+    const theme = config.branding?.theme as { colors?: { primary?: { 500?: string; 600?: string } } } | undefined;
+    return theme?.colors?.primary?.[shade];
+  };
+
+  const brandStyleA = useMemo(() => {
+    const theme = MOCK_CONFIG_CUSTOMER_A.branding?.theme as Record<string, unknown> | undefined;
+    const vars = theme ? getCSSVariables(theme) : {};
+    const primary = primaryColor(MOCK_CONFIG_CUSTOMER_A);
+    return {
+      ...(Object.keys(vars).length ? (vars as React.CSSProperties) : {}),
+      ...(primary ? { borderLeftColor: primary } : {}),
+    } as React.CSSProperties;
+  }, []);
+
+  const brandStyleB = useMemo(() => {
+    const theme = MOCK_CONFIG_CUSTOMER_B.branding?.theme as Record<string, unknown> | undefined;
+    const vars = theme ? getCSSVariables(theme) : {};
+    const primary = primaryColor(MOCK_CONFIG_CUSTOMER_B);
+    return {
+      ...(Object.keys(vars).length ? (vars as React.CSSProperties) : {}),
+      ...(primary ? { borderLeftColor: primary } : {}),
+    } as React.CSSProperties;
+  }, []);
+
   return (
     <div className="font-sans space-y-6">
       <h1 className="text-2xl font-heading font-semibold">Claims</h1>
@@ -35,6 +61,11 @@ function ClaimsAppContent({
             variant={featuresView === 'customer-a' ? 'default' : 'outline'}
             size="default"
             onClick={() => setFeaturesView((v) => (v === 'customer-a' ? null : 'customer-a'))}
+            style={
+              featuresView === 'customer-a' && primaryColor(MOCK_CONFIG_CUSTOMER_A)
+                ? { backgroundColor: primaryColor(MOCK_CONFIG_CUSTOMER_A), color: '#fff' }
+                : undefined
+            }
           >
             Customer A features
           </Button>
@@ -42,14 +73,27 @@ function ClaimsAppContent({
             variant={featuresView === 'customer-b' ? 'default' : 'outline'}
             size="default"
             onClick={() => setFeaturesView((v) => (v === 'customer-b' ? null : 'customer-b'))}
+            style={
+              featuresView === 'customer-b' && primaryColor(MOCK_CONFIG_CUSTOMER_B)
+                ? { backgroundColor: primaryColor(MOCK_CONFIG_CUSTOMER_B), color: '#fff' }
+                : undefined
+            }
           >
             Customer B features
           </Button>
         </div>
 
         {featuresView === 'customer-a' && (
-          <div className="rounded-lg border border-border bg-muted/30 p-4">
-            <h2 className="text-lg font-semibold mb-2">Customer A features</h2>
+          <div
+            className="rounded-lg border border-border border-l-4 bg-muted/30 p-4"
+            style={brandStyleA}
+          >
+            <h2
+              className="text-lg font-semibold mb-2"
+              style={primaryColor(MOCK_CONFIG_CUSTOMER_A) ? { color: primaryColor(MOCK_CONFIG_CUSTOMER_A) } : undefined}
+            >
+              Customer A features
+            </h2>
             <ul className="list-disc list-inside space-y-1 text-sm text-foreground-secondary">
               {Object.entries(featuresA).map(([key, enabled]) => (
                 <li key={key}>
@@ -62,8 +106,16 @@ function ClaimsAppContent({
         )}
 
         {featuresView === 'customer-b' && (
-          <div className="rounded-lg border border-border bg-muted/30 p-4">
-            <h2 className="text-lg font-semibold mb-2">Customer B features</h2>
+          <div
+            className="rounded-lg border border-border border-l-4 bg-muted/30 p-4"
+            style={brandStyleB}
+          >
+            <h2
+              className="text-lg font-semibold mb-2"
+              style={primaryColor(MOCK_CONFIG_CUSTOMER_B) ? { color: primaryColor(MOCK_CONFIG_CUSTOMER_B) } : undefined}
+            >
+              Customer B features
+            </h2>
             <ul className="list-disc list-inside space-y-1 text-sm text-foreground-secondary">
               {Object.entries(featuresB).map(([key, enabled]) => (
                 <li key={key}>
