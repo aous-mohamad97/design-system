@@ -13,5 +13,13 @@ export default defineConfig({
     }),
   ],
   server: { port: 5002 },
+  preview: { port: 5002 },
   build: { target: 'esnext', modulePreload: false, minify: false, cssCodeSplit: false },
+  resolve: {
+    alias: {
+      '@design-system/core': new URL('../../packages/core/src', import.meta.url).pathname,
+      '@design-system/design-system': new URL('../../packages/design-system/src', import.meta.url).pathname,
+      '@design-system/tenant-config': new URL('../../packages/tenant-config/src', import.meta.url).pathname,
+    },
+  },
 });
