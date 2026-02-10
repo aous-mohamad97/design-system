@@ -2,6 +2,8 @@
 
 Utility functions for the design system.
 
+These helpers are also re-exported from `@design-system/design-system`, which is the preferred entrypoint for most apps.
+
 ## Installation
 
 ```bash
@@ -10,7 +12,7 @@ pnpm add @design-system/utils
 
 ## Usage
 
-### Class Name Utility
+### Class name utility
 
 ```ts
 import { cn } from '@design-system/utils';
@@ -18,7 +20,7 @@ import { cn } from '@design-system/utils';
 const className = cn('base-class', condition && 'conditional-class', 'another-class');
 ```
 
-### Type Guards
+### Type guards
 
 ```ts
 import { isString, isNumber, isDefined } from '@design-system/utils';
@@ -28,7 +30,7 @@ if (isString(value)) {
 }
 ```
 
-### Array Utilities
+### Array utilities
 
 ```ts
 import { unique, groupBy, chunk } from '@design-system/utils';
@@ -38,7 +40,7 @@ const grouped = groupBy(items, (item) => item.category);
 const chunks = chunk(array, 5);
 ```
 
-### Object Utilities
+### Object utilities
 
 ```ts
 import { pick, omit, get, set } from '@design-system/utils';
@@ -48,7 +50,7 @@ const omitted = omit(obj, ['password']);
 const value = get(obj, 'nested.path');
 ```
 
-### String Utilities
+### String utilities
 
 ```ts
 import { capitalize, camelCase, kebabCase } from '@design-system/utils';
@@ -58,7 +60,7 @@ camelCase('hello world'); // 'helloWorld'
 kebabCase('hello world'); // 'hello-world'
 ```
 
-### Formatting Utilities
+### Formatting utilities
 
 ```ts
 import { formatCurrency, formatDate, formatRelativeTime } from '@design-system/utils';
@@ -66,4 +68,12 @@ import { formatCurrency, formatDate, formatRelativeTime } from '@design-system/u
 formatCurrency(1000); // '$1,000.00'
 formatDate(new Date()); // '1/27/2026'
 formatRelativeTime(date); // '2 hours ago'
+```
+
+### Via @design-system/design-system
+
+You can also import these utilities directly from the aggregated package:
+
+```ts
+import { cn, formatCurrency } from '@design-system/design-system';
 ```

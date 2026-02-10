@@ -2,6 +2,8 @@
 
 Core design tokens, theme system, and Tailwind configuration for the design system.
 
+Most apps will access this functionality via `@design-system/design-system`, but you can depend on `@design-system/core` directly when you only need tokens, theming utilities, or the Tailwind preset.
+
 ## Installation
 
 ```bash
@@ -30,7 +32,7 @@ In your `tailwind.config.js`:
 module.exports = {
   presets: [require('@design-system/core/tailwind-preset')],
   // Your other config...
-}
+};
 ```
 
 ### Use Design Tokens
@@ -58,4 +60,12 @@ const customTheme = createTheme({
   --ds-colors-primary-500: #your-color;
   --ds-spacing-4: 1.5rem;
 }
+```
+
+### Via @design-system/design-system
+
+If you are already using the aggregated package, you can access the same primitives from there:
+
+```ts
+import { tokens, createTheme } from '@design-system/design-system';
 ```

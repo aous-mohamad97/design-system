@@ -2,6 +2,8 @@
 
 Custom React hooks for the design system.
 
+These hooks are also re-exported from `@design-system/design-system`, which is the preferred entrypoint for most applications.
+
 ## Installation
 
 ```bash
@@ -19,7 +21,7 @@ import { useTheme } from '@design-system/hooks';
 
 function App() {
   const { theme, setTheme, resolvedTheme } = useTheme();
-  
+
   return (
     <button onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
       Current theme: {resolvedTheme}
@@ -38,14 +40,14 @@ import { useMediaQuery, useIsMobile } from '@design-system/hooks';
 function Component() {
   const isMobile = useIsMobile();
   const isLarge = useMediaQuery('(min-width: 1024px)');
-  
+
   return <div>{isMobile ? 'Mobile' : 'Desktop'}</div>;
 }
 ```
 
 ### useClickOutside
 
-Detect clicks outside element:
+Detect clicks outside an element:
 
 ```tsx
 import { useClickOutside } from '@design-system/hooks';
@@ -53,7 +55,7 @@ import { useClickOutside } from '@design-system/hooks';
 function Dropdown() {
   const [isOpen, setIsOpen] = useState(false);
   const ref = useClickOutside<HTMLDivElement>(() => setIsOpen(false));
-  
+
   return <div ref={ref}>...</div>;
 }
 ```
@@ -68,7 +70,7 @@ import { useDebounce } from '@design-system/hooks';
 function Search() {
   const [query, setQuery] = useState('');
   const debouncedQuery = useDebounce(query, 500);
-  
+
   useEffect(() => {
     // Search with debouncedQuery
   }, [debouncedQuery]);
@@ -84,7 +86,7 @@ import { useLocalStorage } from '@design-system/hooks';
 
 function App() {
   const [value, setValue, removeValue] = useLocalStorage('key', 'default');
-  
+
   return <input value={value} onChange={(e) => setValue(e.target.value)} />;
 }
 ```
@@ -98,7 +100,15 @@ import { useToggle } from '@design-system/hooks';
 
 function Component() {
   const [isOpen, toggle, setToggle] = useToggle(false);
-  
+
   return <button onClick={toggle}>Toggle</button>;
 }
+```
+
+### Via @design-system/design-system
+
+You can also import these hooks from the aggregated package:
+
+```tsx
+import { useTheme, useMediaQuery } from '@design-system/design-system';
 ```

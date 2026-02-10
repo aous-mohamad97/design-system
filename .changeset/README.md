@@ -1,22 +1,23 @@
 # Changesets
 
-This directory contains changeset files that describe changes made to packages.
+This directory contains changeset files that describe changes made to packages in the monorepo.
 
-## Creating a Changeset
+## Creating a changeset
 
-When you make changes that should be included in a release, create a changeset:
+When you make changes that should be included in a release, create a changeset from the repo root:
 
 ```bash
 pnpm changeset
 ```
 
 This will:
-1. Ask which packages changed
-2. Ask what type of change (major, minor, patch)
-3. Ask for a description of the change
-4. Create a markdown file in `.changeset/`
 
-## Changeset File Format
+1. Ask which packages changed.
+2. Ask what type of change (major, minor, patch).
+3. Ask for a description of the change.
+4. Create a markdown file in `.changeset/`.
+
+## Changeset file format
 
 Changeset files are markdown files with frontmatter:
 
@@ -28,14 +29,23 @@ Changeset files are markdown files with frontmatter:
 Fix Button loading state not disabling the button
 ```
 
-## What Happens Next
+## Versioning and releasing
 
-1. When you open a PR, the CI will check that a changeset exists
-2. When merged to main, the release workflow will:
-   - Create a PR with version bumps and changelog updates
-   - When that PR is merged, it will publish to npm
+After one or more changesets have been added, bump versions and update changelogs:
 
-## Example Changeset
+```bash
+pnpm version-packages
+```
+
+This will:
+
+- Update package versions based on the collected changesets.
+- Update `CHANGELOG.md` files.
+- Mark the changesets as consumed.
+
+Publishing to npm is typically handled by CI after the version-bump PR is merged.
+
+## Example changeset
 
 For a new feature in the components package:
 
@@ -47,6 +57,7 @@ pnpm changeset
 ```
 
 This creates a file that will be used to:
-- Bump the version (minor)
-- Update CHANGELOG.md
-- Create a release
+
+- Bump the version (minor).
+- Update `CHANGELOG.md`.
+- Create a release.

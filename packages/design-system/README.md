@@ -1,6 +1,8 @@
 # @design-system/design-system
 
-Complete design system package - re-exports all components, hooks, utils, and core functionality.
+Complete design system package – re-exports components, hooks, utils, and core functionality from the individual workspace packages.
+
+This is the **recommended entrypoint** for most applications.
 
 ## Installation
 
@@ -8,25 +10,35 @@ Complete design system package - re-exports all components, hooks, utils, and co
 pnpm add @design-system/design-system
 ```
 
-## Quick Start
+## Quick start
 
 ```tsx
-import { Button, Input, Card, useTheme, ThemeProvider } from '@design-system/design-system';
+import {
+  Button,
+  Input,
+  Card,
+  ThemeProvider,
+  useTheme,
+} from '@design-system/design-system';
 import '@design-system/design-system/styles';
 
 function App() {
+  const { theme, setTheme } = useTheme();
+
   return (
     <ThemeProvider>
       <Card>
         <Input placeholder="Enter text" />
-        <Button>Click me</Button>
+        <Button onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
+          Toggle theme
+        </Button>
       </Card>
     </ThemeProvider>
   );
 }
 ```
 
-## Using Tailwind Preset
+## Using Tailwind preset
 
 In your `tailwind.config.js`:
 
@@ -34,12 +46,12 @@ In your `tailwind.config.js`:
 module.exports = {
   presets: [require('@design-system/design-system/tailwind-preset')],
   // Your other config...
-}
+};
 ```
 
 ## Customization
 
-### CSS Variables Override
+### CSS variables override
 
 ```css
 :root {
@@ -47,7 +59,7 @@ module.exports = {
 }
 ```
 
-### Theme Provider
+### Theme provider with custom theme
 
 ```tsx
 import { ThemeProvider, createTheme } from '@design-system/design-system';
@@ -60,17 +72,22 @@ const customTheme = createTheme({
   },
 });
 
-<ThemeProvider theme={customTheme}>
-  <App />
-</ThemeProvider>
+function Root() {
+  return (
+    <ThemeProvider theme={customTheme}>
+      <App />
+    </ThemeProvider>
+  );
+}
 ```
 
-## Package Structure
+## Package structure
 
 This package re-exports from:
-- `@design-system/core` - Design tokens, theme system, Tailwind preset
-- `@design-system/components` - React components
-- `@design-system/hooks` - Custom React hooks
-- `@design-system/utils` - Utility functions
+
+- `@design-system/core` – design tokens, theme system, Tailwind preset
+- `@design-system/components` – React components
+- `@design-system/hooks` – custom React hooks
+- `@design-system/utils` – utility functions
 
 You can also install these packages individually if you only need specific functionality.
