@@ -41,6 +41,22 @@ pnpm dev           # runs Storybook on http://localhost:6006
 pnpm --filter platform-shell dev   # http://localhost:5173
 ```
 
+The platform shell expects the auth backend to be running at `http://localhost:3000`.
+
+### Run the auth backend (NestJS tenant-auth-service)
+
+From the repo root:
+
+```bash
+pnpm --filter tenant-auth-service start:dev   # http://localhost:3000
+```
+
+Optionally seed a default tenant and admin user (local dev only):
+
+```bash
+pnpm --filter tenant-auth-service seed
+```
+
 ### Run the claims app (remote)
 
 ```bash

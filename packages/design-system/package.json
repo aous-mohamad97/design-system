@@ -44,7 +44,8 @@
     "@design-system/components": "workspace:*",
     "@design-system/core": "workspace:*",
     "@design-system/hooks": "workspace:*",
-    "@design-system/utils": "workspace:*"
+    "@design-system/utils": "workspace:*",
+    "@design-system/auth": "workspace:*"
   },
   "devDependencies": {
     "tsup": "^8.0.1",

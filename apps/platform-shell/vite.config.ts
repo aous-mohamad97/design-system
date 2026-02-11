@@ -27,6 +27,7 @@ export default defineConfig({
       '@design-system/components': new URL('../../packages/components/src', import.meta.url).pathname,
       '@design-system/design-system': new URL('../../packages/design-system/src', import.meta.url).pathname,
       '@design-system/tenant-config': new URL('../../packages/tenant-config/src', import.meta.url).pathname,
+      '@design-system/auth': new URL('../../packages/auth/src', import.meta.url).pathname,
     },
   },
 });

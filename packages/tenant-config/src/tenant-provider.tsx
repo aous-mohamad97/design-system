@@ -23,6 +23,12 @@ export interface TenantProviderProps {
    * (e.g. customer-a, customer-b, default). Use with resolveTenantId() for path/subdomain-based lookup.
    */
   mockConfigMap?: Record<string, TenantConfig>;
+  /**
+   * Optional backend base URL. When provided, TenantProvider will attempt to
+   * load tenant config from `${backendBaseUrl}/tenants/config/:tenantId`
+   * and fall back to static config (initialConfig/mockConfigMap/default) on error.
+   */
+  backendBaseUrl?: string;
 }
 
 /**
@@ -62,6 +68,7 @@ export function TenantProvider({
   tenantId: tenantIdProp,
   initialConfig,
   mockConfigMap,
+  backendBaseUrl,
 }: TenantProviderProps) {
   const tenantId = tenantIdProp ?? resolveTenantId();
 
@@ -72,10 +79,46 @@ export function TenantProvider({
   }, [initialConfig, mockConfigMap, tenantId]);
 
   const [config, setConfig] = useState<TenantConfig>(resolvedInitial);
-  const isLoading = false;
-  const error: Error | null = null;
+  const [isLoading, setIsLoading] = useState<boolean>(!!backendBaseUrl);
+  const [error, setError] = useState<Error | null>(null);
 
   const loadConfig = useCallback(async () => {
+    // Prefer backend when configured
+    if (backendBaseUrl) {
+      setIsLoading(true);
+      setError(null);
+      try {
+        const res = await fetch(
+          `${backendBaseUrl.replace(/\/+$/, '')}/tenants/config/${tenantId}`,
+        );
+        if (!res.ok) {
+          throw new Error('Failed to load tenant config from backend');
+        }
+        const next = (await res.json()) as TenantConfig;
+        setConfig(next);
+        if (next.branding?.fontUrls?.length) {
+          loadFontUrls(next.branding.fontUrls);
+        }
+      } catch (err) {
+        setError(err as Error);
+        // fallback to static
+        if (initialConfig) {
+          setConfig(initialConfig);
+        } else if (mockConfigMap) {
+          const next = getConfigFromMock(mockConfigMap, tenantId);
+          setConfig(next);
+          if (next.branding?.fontUrls?.length) {
+            loadFontUrls(next.branding.fontUrls);
+          }
+        } else {
+          setConfig(DEFAULT_TENANT_CONFIG);
+        }
+      } finally {
+        setIsLoading(false);
+      }
+      return;
+    }
+
     if (initialConfig) {
       setConfig(initialConfig);
       return;
@@ -87,7 +130,7 @@ export function TenantProvider({
     } else {
       setConfig(DEFAULT_TENANT_CONFIG);
     }
-  }, [tenantId, initialConfig, mockConfigMap]);
+  }, [tenantId, initialConfig, mockConfigMap, backendBaseUrl]);
 
   useEffect(() => {
     loadConfig();

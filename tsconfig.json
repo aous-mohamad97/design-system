@@ -21,7 +21,11 @@
       "@design-system/core": ["./packages/core/src"],
       "@design-system/components": ["./packages/components/src"],
       "@design-system/hooks": ["./packages/hooks/src"],
-      "@design-system/utils": ["./packages/utils/src"]
+      "@design-system/utils": ["./packages/utils/src"],
+      "@design-system/tenant-config": ["./packages/tenant-config/src"],
+      "@design-system/design-system": ["./packages/design-system/src"],
+      "@design-system/auth": ["./packages/auth/src"],
+      "@design-system/types": ["./packages/types/src"]
     }
   },
   "include": [],
